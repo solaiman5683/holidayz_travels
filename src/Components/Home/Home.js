@@ -4,6 +4,7 @@ import Adventure from '../Adventure/Adventure';
 import Articles from '../Articles/Articles';
 import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
+import Quotes from '../Quotes/Quotes';
 import Upcoming from '../Upcoming/Upcoming';
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
 			<Upcoming />
 			<Adventure />
 			<Articles />
+			<Quotes />
 		</div>
 	);
 };

@@ -46,9 +46,9 @@
 	transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
 	transform: scaleY(0);
 	border-radius: 0px;
-	background: linear-gradient(top, #00407e 0%, #0c0c1f 100%);
-	background: -moz-linear-gradient(top, #00407e 0%, #0c0c1f 100%);
-	background: -webkit-linear-gradient(top, #00407e 0%, #0c0c1f 100%);
+	background: linear-gradient(to top, #00407e 0%, #0c0c1f 100%);
+	background: -moz-linear-gradient(to top, #00407e 0%, #0c0c1f 100%);
+	background: -webkit-linear-gradient(to top, #00407e 0%, #0c0c1f 100%);
 	background: linear-gradient(to bottom, #00407e 0%, #0c0c1f 100%);
 }
 
