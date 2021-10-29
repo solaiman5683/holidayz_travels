@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+.logout-btn {
+	cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.text-shadow {
+	text-shadow: 0px 0px 10px #ecc7e3;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dropdown-menu {
+	border: none;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	padding: 10px;
+}
+.dropdown-menu[data-bs-popper] {
+	left: 30%;
+}
+.rounded {
+	overflow: hidden;
+	border-radius: 20px !important;
+}
+.booking-btn {
+	display: inline-block;
+	color: #fff;
+	background: #005690;
+	padding: 12px 25px;
+	border: none;
+	transition: color 0.4s linear;
+	position: relative;
+	z-index: 1;
+	border: 0;
+	overflow: hidden;
+}
+.booking-btn::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 102%;
+	height: 102%;
+	z-index: 1;
+	border-radius: 0px;
+	transition: transform 0.5s;
+	transition-timing-function: ease;
+	transition-timing-function: ease;
+	transform-origin: 0 0;
+	transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+	transform: scaleY(0);
+	border-radius: 0px;
+	background: linear-gradient(top, #00407e 0%, #0c0c1f 100%);
+	background: -moz-linear-gradient(top, #00407e 0%, #0c0c1f 100%);
+	background: -webkit-linear-gradient(top, #00407e 0%, #0c0c1f 100%);
+	background: linear-gradient(to bottom, #00407e 0%, #0c0c1f 100%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.booking-btn:hover::before {
+	transform: scaleY(1);
+	z-index: -1;
 }

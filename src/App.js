@@ -1,25 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import AuthProvider from './Components/Context/AuthProvider';
+import { Route, Switch } from 'react-router';
+import RegistrationForm from './Components/Form/Registration';
+import LoginForm from './Components/Form/LoginForm';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Home from './Components/Home/Home';
+import Private from './Components/Private';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+// import useFirebase from './hooks/useFirebase';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	// const { user } = useFirebase();
+	return (
+		<div className='App'>
+			<AuthProvider>
+				<Router>
+					<Switch>
+						<Route exact path='/'>
+							<Home />
+						</Route>
+						<Route path='/home'>
+							<Home />
+						</Route>
+						<PrivateRoute path='/private'>
+							<Private></Private>
+						</PrivateRoute>
+						<Route path='/registration'>
+							<RegistrationForm />
+						</Route>
+						<Route path='/login'>
+							<LoginForm />
+						</Route>
+					</Switch>
+				</Router>
+			</AuthProvider>
+		</div>
+	);
 }
 
 export default App;
