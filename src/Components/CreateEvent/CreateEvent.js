@@ -17,7 +17,7 @@ function CreateEvent() {
 		image: '',
 		country: '',
 		time: '',
-		price: 0,
+		price: '',
 		description: '',
 		user: user.uid,
 	});
@@ -47,7 +47,7 @@ function CreateEvent() {
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<input
 						className='form-control mb-3 p-3 fs-5'
-						placeholder='Enter Event Name'
+						placeholder='Enter Place Name'
 						{...register('name', { required: true })}
 						onBlur={e => {
 							setEvents(prev => {
@@ -86,11 +86,12 @@ function CreateEvent() {
 							});
 						}}
 					/>
+
 					<input
 						className='form-control mb-3 p-3 fs-5'
-						placeholder='Enter Event Price'
+						placeholder='Enter Price'
+						{...register('charge', { required: true })}
 						type='number'
-						{...register('price')}
 						onBlur={e => {
 							setEvents(prev => {
 								return {
@@ -100,7 +101,8 @@ function CreateEvent() {
 							});
 						}}
 					/>
-					<small className='text-muted ps-3'>Select Event Time</small>
+
+					<small className='text-muted ps-3'>Select Tour Date</small>
 					<input
 						className='form-control mb-3 p-3 fs-5'
 						type='date'
@@ -134,7 +136,7 @@ function CreateEvent() {
 					<input
 						className='form-control fs-5 bg-gradient p-3 mt-3 btn-primary'
 						type='submit'
-						value='Add Event'
+						value='Submit '
 					/>
 				</form>
 			</div>

@@ -9,6 +9,7 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import NotFound from './Components/NotFound/NotFound';
 import Blogs from './Components/Blogs/Blogs';
 import Events from './Components/Events/Events';
+import Dashboard from './Components/Dashboard/Dashboard';
 // import useFirebase from './hooks/useFirebase';
 
 function App() {
@@ -27,8 +28,11 @@ function App() {
 						<PrivateRoute path='/blogs'>
 							<Blogs />
 						</PrivateRoute>
-						<PrivateRoute path='/events'>
+						<PrivateRoute path='/tours'>
 							<Events />
+						</PrivateRoute>
+						<PrivateRoute path='/dashboard'>
+							<Dashboard />
 						</PrivateRoute>
 						<Route path='/registration'>
 							<RegistrationForm />

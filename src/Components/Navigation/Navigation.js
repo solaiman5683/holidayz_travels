@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Navigation = () => {
@@ -39,8 +39,8 @@ const Navigation = () => {
 								activeClassName=' active'
 								className='nav-link'
 								aria-current='page'
-								to='/events'>
-								Events
+								to='/tours'>
+								Tour Packages
 							</NavLink>
 							<NavLink
 								activeClassName=' active'
@@ -78,6 +78,11 @@ const Navigation = () => {
 											/>
 										</p>
 									)}
+									<Link
+										to='/dashboard'
+										className='dropdown-item text-center mb-3 rounded-pill btn-pointer'>
+										Dashboard
+									</Link>
 									<p
 										className='dropdown-item text-center bg-danger text-light rounded-pill btn-pointer'
 										onClick={logout}>

@@ -1,6 +1,7 @@
 import React from 'react';
 
-const EventCard = () => {
+const EventCard = ({ event }) => {
+	const { name, image, country, time, price } = event;
 	return (
 		<div className='col'>
 			<div className='card border-0 shadow-sm rounded'>
@@ -9,21 +10,20 @@ const EventCard = () => {
 					style={{
 						width: '100%',
 						height: '300px',
-						background:
-							'url("https://preview.colorlib.com/theme/vacation/images/destination-1.jpg.webp")',
+						background: `url('${image}')`,
 						backgroundPosition: 'center',
 						backgroundSize: 'cover',
 					}}
 				/>
 				<div className='card-body'>
-					<small className='text-muted'>3 day tour</small>
-					<h4 className='card-title'>Bali, Indonesia</h4>
+					<small className='text-muted'>{time}</small>
+					<h4 className='card-title text-capitalize'>{name}</h4>
 					<div className='d-flex justify-content-between align-items-center'>
 						<small>
-							<i className='fad fa-map-marker-alt text-primary'></i> Indonesia
+							<i className='fad fa-map-marker-alt text-primary'></i> {country}
 						</small>
 						<button className='btn btn-default text-primary'>
-							$200 / Per Person
+							${price} / Per Person
 						</button>
 					</div>
 				</div>
