@@ -5,7 +5,7 @@ import Sidebar from './Sidebar';
 import TourPackages from './Tour-Packages';
 
 const Dashboard = () => {
-	const { user } = useAuth();
+	const { user, logout } = useAuth();
 	const { path } = useRouteMatch();
 
 	return (
@@ -27,7 +27,9 @@ const Dashboard = () => {
 					</button>
 					<div className='navbar-nav'>
 						<div className='nav-item text-nowrap'>
-							<span className='nav-link px-3'>Logout</span>
+							<span className='nav-link px-3 btn' onClick={logout}>
+								Logout
+							</span>
 						</div>
 					</div>
 				</div>

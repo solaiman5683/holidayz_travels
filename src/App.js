@@ -34,6 +34,9 @@ function App() {
 						<PrivateRoute path='/dashboard'>
 							<Dashboard />
 						</PrivateRoute>
+						<PrivateRoute path='/dashboard'>
+							<Dashboard />
+						</PrivateRoute>
 						<Route path='/registration'>
 							<RegistrationForm />
 						</Route>
