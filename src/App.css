@@ -1,4 +1,4 @@
-.logout-btn {
+.btn-pointer {
 	cursor: pointer;
 }
 
@@ -55,4 +55,9 @@
 .booking-btn:hover::before {
 	transform: scaleY(1);
 	z-index: -1;
+}
+
+.modal-content {
+	border-radius: 30px !important;
+	overflow: hidden;
 }

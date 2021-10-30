@@ -58,7 +58,7 @@ const Navigation = () => {
 										</p>
 									)}
 									<p
-										className='dropdown-item text-center bg-danger text-light rounded-pill logout-btn'
+										className='dropdown-item text-center bg-danger text-light rounded-pill btn-pointer'
 										onClick={logout}>
 										Logout
 									</p>

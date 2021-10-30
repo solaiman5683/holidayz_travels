@@ -6,6 +6,7 @@ import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
 import Quotes from '../Quotes/Quotes';
 import Upcoming from '../Upcoming/Upcoming';
+import Video from '../Video/Video';
 
 const Home = () => {
 	const { user } = useAuth();
@@ -20,6 +21,7 @@ const Home = () => {
 			<Adventure />
 			<Articles />
 			<Quotes />
+			<Video />
 		</div>
 	);
 };
