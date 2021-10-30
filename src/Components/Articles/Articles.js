@@ -29,11 +29,6 @@ const Articles = () => {
 				<Article />
 				<Article />
 			</div>
-			<p className='text-center py-3'>
-				<button className='rounded booking-btn w-25'>
-					Read More Articles {' >>'}
-				</button>
-			</p>
 		</div>
 	);
 };

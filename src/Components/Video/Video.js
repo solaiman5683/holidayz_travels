@@ -4,7 +4,7 @@ import { Modal } from 'react-bootstrap';
 const Video = () => {
 	const [modalShow, setModalShow] = React.useState(false);
 	return (
-		<div class='container'>
+		<div className='container'>
 			<div
 				style={{
 					backgroundImage:
@@ -18,14 +18,14 @@ const Video = () => {
 					overflow: 'hidden',
 				}}>
 				<div
-					class='d-flex align-items-center justify-content-center'
+					className='d-flex align-items-center justify-content-center'
 					style={{
 						height: '100%',
 						width: '100%',
 						background:
 							'linear-gradient(to top, rgba(0, 64, 126, 0.36) 0%, rgba(139, 136, 91, 0.71) 100%)',
 					}}>
-					<div class='text-center'>
+					<div className='text-center'>
 						<p className='btn-pointer' onClick={() => setModalShow(true)}>
 							<img
 								src='https://monnampo.sirv.com/Images/Assignment11/play.svg'

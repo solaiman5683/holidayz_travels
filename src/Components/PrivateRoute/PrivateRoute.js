@@ -8,10 +8,10 @@ const PrivateRoute = ({ children, ...rest }) => {
 		return (
 			<div className='d-flex align-items-center justify-content-center min-vh-100'>
 				<div
-					class='spinner-border text-success'
+					className='spinner-border text-success'
 					role='status'
 					style={{ height: '5em', width: '5em' }}>
-					<span class='visually-hidden'>Loading...</span>
+					<span className='visually-hidden'>Loading...</span>
 				</div>
 			</div>
 		);

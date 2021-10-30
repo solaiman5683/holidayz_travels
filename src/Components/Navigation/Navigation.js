@@ -7,16 +7,17 @@ const Navigation = () => {
 	const { user, logout } = useAuth();
 	return (
 		<>
-			<Navbar bg='light' expand='lg' className='pt-4'>
+			<Navbar bg='light' expand='lg' className='pt-4 sticky-top'>
 				<Container>
 					<NavLink
 						className='nav-link active position-relative'
+						style={{ width: '200px' }}
 						aria-current='page'
 						to='/'>
 						<img
 							src='https://monnampo.sirv.com/Images/Assignment11/holidays-logo.svg'
 							alt=''
-							width='100'
+							width='100px'
 							style={{
 								transform: 'scale(1.5)',
 								position: 'absolute',
@@ -26,10 +27,30 @@ const Navigation = () => {
 					</NavLink>
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
-						<Nav className='ms-auto'>
-							<NavLink className='nav-link active' aria-current='page' to='/'>
+						<Nav className='me-auto'>
+							<NavLink
+								className='nav-link'
+								activeClassName=' active'
+								aria-current='page'
+								to='/'>
 								Home
 							</NavLink>
+							<NavLink
+								activeClassName=' active'
+								className='nav-link'
+								aria-current='page'
+								to='/events'>
+								Events
+							</NavLink>
+							<NavLink
+								activeClassName=' active'
+								className='nav-link'
+								aria-current='page'
+								to='/blogs'>
+								Blogs
+							</NavLink>
+						</Nav>
+						<Nav className='ms-auto'>
 							{!user.email && (
 								<>
 									<li className='nav-item'>

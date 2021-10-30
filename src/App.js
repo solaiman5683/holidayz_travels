@@ -5,8 +5,10 @@ import RegistrationForm from './Components/Form/Registration';
 import LoginForm from './Components/Form/LoginForm';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Home from './Components/Home/Home';
-import Private from './Components/Private';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import NotFound from './Components/NotFound/NotFound';
+import Blogs from './Components/Blogs/Blogs';
+import Events from './Components/Events/Events';
 // import useFirebase from './hooks/useFirebase';
 
 function App() {
@@ -22,14 +24,20 @@ function App() {
 						<Route path='/home'>
 							<Home />
 						</Route>
-						<PrivateRoute path='/private'>
-							<Private></Private>
+						<PrivateRoute path='/blogs'>
+							<Blogs />
+						</PrivateRoute>
+						<PrivateRoute path='/events'>
+							<Events />
 						</PrivateRoute>
 						<Route path='/registration'>
 							<RegistrationForm />
 						</Route>
 						<Route path='/login'>
 							<LoginForm />
+						</Route>
+						<Route>
+							<NotFound />
 						</Route>
 					</Switch>
 				</Router>

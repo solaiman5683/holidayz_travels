@@ -1,5 +1,5 @@
 import React from 'react';
-import EventCard from '../Event/Event-card';
+import EventCard from '../Event-Card/Event-card';
 const Upcoming = () => {
 	return (
 		<div className='py-5 my-5'>

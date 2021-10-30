@@ -19,13 +19,13 @@ const Quotes = () => {
 				}}
 				className='d-flex justify-content-center align-items-center'>
 				<figure>
-					<blockquote class='blockquote'>
+					<blockquote className='blockquote'>
 						<h1 className='text-uppercase fw-bold text-shadow mt-5'>
 							A journey of a thousand miles begins with a single step
 						</h1>
 					</blockquote>
 					<figcaption
-						class='blockquote-footer fs-4'
+						className='blockquote-footer fs-4'
 						style={{ textAlign: 'right' }}>
 						<cite title='Source Title '>Lao Tzu</cite>
 					</figcaption>
