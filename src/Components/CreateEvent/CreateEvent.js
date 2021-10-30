@@ -1,35 +1,39 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Editor } from '@tinymce/tinymce-react';
-// import axios from 'axios';
-
+import axios from 'axios';
+import useAuth from '../../hooks/useAuth';
 function CreateEvent() {
+	const { user } = useAuth();
+	console.log(user);
 	const {
 		register,
 		handleSubmit,
 		reset,
 		formState: { errors },
 	} = useForm();
-	const [product, setProduct] = useState({
+	const [events, setEvents] = useState({
 		name: '',
 		image: '',
-		shortDescription: '',
+		country: '',
+		time: '',
 		price: 0,
 		description: '',
+		user: user.uid,
 	});
 
 	const onSubmit = data => {
-		console.log(JSON.stringify(product));
-		console.log(product);
-		// axios
-		// 	.post('https://limitless-basin-96274.herokuapp.com/products', product)
-		// 	.then(response => response.data && alert('Product Added Successfully'))
-		// 	.catch(error => alert(error.message));
+		console.log(JSON.stringify(events));
+		console.log(events);
+		axios
+			.post('http://localhost:5000/events', events)
+			.then(response => response.data && alert('Events Added Successfully'))
+			.catch(error => alert(error.message));
 		reset();
 	};
 
 	const handleEditorChange = e => {
-		setProduct(prev => {
+		setEvents(prev => {
 			return {
 				...prev,
 				description: e.target.getContent(),
@@ -46,7 +50,7 @@ function CreateEvent() {
 						placeholder='Enter Event Name'
 						{...register('name', { required: true })}
 						onBlur={e => {
-							setProduct(prev => {
+							setEvents(prev => {
 								return {
 									...prev,
 									name: e.target.value,
@@ -60,7 +64,7 @@ function CreateEvent() {
 						placeholder='Enter Image Url'
 						{...register('image', { required: true })}
 						onBlur={e => {
-							setProduct(prev => {
+							setEvents(prev => {
 								return {
 									...prev,
 									image: e.target.value,
@@ -71,13 +75,13 @@ function CreateEvent() {
 					{errors.exampleRequired && <span>This field is required</span>}
 					<input
 						className='form-control mb-3 p-3 fs-5'
-						placeholder='Enter Short Description'
-						{...register('shortDescription', { required: true })}
+						placeholder='Enter Country Name'
+						{...register('country', { required: true })}
 						onBlur={e => {
-							setProduct(prev => {
+							setEvents(prev => {
 								return {
 									...prev,
-									shortDescription: e.target.value,
+									country: e.target.value,
 								};
 							});
 						}}
@@ -88,10 +92,24 @@ function CreateEvent() {
 						type='number'
 						{...register('price')}
 						onBlur={e => {
-							setProduct(prev => {
+							setEvents(prev => {
 								return {
 									...prev,
 									price: e.target.value,
+								};
+							});
+						}}
+					/>
+					<small className='text-muted ps-3'>Select Event Time</small>
+					<input
+						className='form-control mb-3 p-3 fs-5'
+						type='date'
+						{...register('price')}
+						onBlur={e => {
+							setEvents(prev => {
+								return {
+									...prev,
+									time: e.target.value,
 								};
 							});
 						}}
