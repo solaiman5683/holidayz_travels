@@ -7,7 +7,7 @@ const ManageOrders = () => {
 
 	useEffect(() => {
 		const unsubscribe = axios
-			.get('http://localhost:5000/bookings')
+			.get('https://holidayz-travel.herokuapp.com/bookings')
 			.then(res => setOrders(res.data));
 		return unsubscribe;
 	}, []);

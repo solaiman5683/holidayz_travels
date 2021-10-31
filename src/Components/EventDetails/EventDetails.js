@@ -11,7 +11,7 @@ const EventDetails = () => {
 	const [events, setEvents] = useState();
 	const [modalShow, setModalShow] = React.useState(false);
 	useEffect(() => {
-		axios(`http://localhost:5000/events/${id}`).then(res =>
+		axios(`https://holidayz-travel.herokuapp.com/events/${id}`).then(res =>
 			setEvents(res.data)
 		);
 	}, [id]);
@@ -102,7 +102,7 @@ function MyVerticallyCenteredModal(props) {
 		console.log(JSON.stringify(bookingsData));
 		console.log(bookingsData);
 		axios
-			.post('http://localhost:5000/bookings', bookingsData)
+			.post('https://holidayz-travel.herokuapp.com/bookings', bookingsData)
 			.then(
 				response =>
 					response.data &&

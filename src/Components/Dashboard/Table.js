@@ -11,13 +11,15 @@ const Table = ({ packages, editId }) => {
 		const check = window.confirm('Are you sure you want to delete?');
 		console.log('check');
 		if (check) {
-			axios.delete(`http://localhost:5000/events/${id}`).then(res => {
-				if (res.data.acknowledged) {
-					alert('Items Deleted Successfully!');
-					const newData = data.filter(d => d._id !== id);
-					setData(newData);
-				}
-			});
+			axios
+				.delete(`https://holidayz-travel.herokuapp.com/events/${id}`)
+				.then(res => {
+					if (res.data.acknowledged) {
+						alert('Items Deleted Successfully!');
+						const newData = data.filter(d => d._id !== id);
+						setData(newData);
+					}
+				});
 		}
 	};
 	return (

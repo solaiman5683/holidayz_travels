@@ -26,12 +26,12 @@ function EditEvent() {
 	console.log(events);
 	useEffect(() => {
 		axios
-			.get(`http://localhost:5000/events/${id}`)
+			.get(`https://holidayz-travel.herokuapp.com/events/${id}`)
 			.then(res => setLoadData({ ...res.data }));
 	}, [id]);
 	const onSubmit = data => {
 		axios
-			.put(`http://localhost:5000/events/${id}`, events)
+			.put(`https://holidayz-travel.herokuapp.com/events/${id}`, events)
 			.then(response => response.data && alert('Events Updated Successfully'))
 			.catch(error => alert(error.message));
 		reset();

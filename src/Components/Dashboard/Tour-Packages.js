@@ -14,12 +14,14 @@ const TourPackages = () => {
 	const [myPackages, setMyPackages] = useState();
 
 	useEffect(() => {
-		axios('http://localhost:5000/events').then(res => setPackages(res.data));
+		axios('https://holidayz-travel.herokuapp.com/events').then(res =>
+			setPackages(res.data)
+		);
 	}, []);
 	useEffect(() => {
-		axios(`http://localhost:5000/my-events?user=${user.uid}`).then(res =>
-			setMyPackages(res.data)
-		);
+		axios(
+			`https://holidayz-travel.herokuapp.com/my-events?user=${user.uid}`
+		).then(res => setMyPackages(res.data));
 	}, [user]);
 
 	return (

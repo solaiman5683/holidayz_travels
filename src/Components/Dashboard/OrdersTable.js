@@ -5,16 +5,19 @@ import { Link } from 'react-router-dom';
 const OrdersTable = ({ orders }) => {
 	const [packages, setPackages] = useState();
 	useEffect(() => {
-		const unsubscribe = axios('http://localhost:5000/events').then(res =>
-			setPackages(res.data)
-		);
+		const unsubscribe = axios(
+			'https://holidayz-travel.herokuapp.com/events'
+		).then(res => setPackages(res.data));
 		return unsubscribe;
 	}, []);
 	const handleApprove = product => {
 		if (product.status === 'pending') {
 			const updated = { status: 'approved' };
 			axios
-				.put(`http://localhost:5000/bookings/${product._id}`, updated)
+				.put(
+					`https://holidayz-travel.herokuapp.com/bookings/${product._id}`,
+					updated
+				)
 				.then(
 					res => res.data.acknowledged && alert('Booking Approved Successfully')
 				);

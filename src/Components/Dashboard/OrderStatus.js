@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 const OrdersTable = ({ orders }) => {
 	const [packages, setPackages] = useState();
 	useEffect(() => {
-		axios('http://localhost:5000/events').then(res => setPackages(res.data));
+		axios('https://holidayz-travel.herokuapp.com/events').then(res =>
+			setPackages(res.data)
+		);
 	}, []);
 	return (
 		<div className='table-responsive'>

@@ -17,7 +17,7 @@ const Home = () => {
 
 	useEffect(() => {
 		axios
-			.get('http://localhost:5000/events?limit=6')
+			.get('https://holidayz-travel.herokuapp.com/events?limit=6')
 			.then(response => setEvents(response.data));
 	}, []);
 

@@ -8,7 +8,7 @@ const Events = () => {
 
 	useEffect(() => {
 		axios
-			.get('http://localhost:5000/events')
+			.get('https://holidayz-travel.herokuapp.com/events')
 			.then(response => setEvents(response.data));
 	});
 	return (
