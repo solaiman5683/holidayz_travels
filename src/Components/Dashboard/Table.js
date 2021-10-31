@@ -51,7 +51,7 @@ const Table = ({ packages, editId }) => {
 							<td className='py-3'>${pg.price}</td>
 							<td className='py-3'>
 								{pg?._id && (
-									<Link to={`/dashboard/edit-packages/${pg?._id}`}>
+									<Link to={`/edit-packages/${pg?._id}`}>
 										<i className='btn shadow-none fad fa-edit px-2 py-0'></i>
 									</Link>
 								)}

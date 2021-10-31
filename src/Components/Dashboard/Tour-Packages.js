@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Table from './Table';
 import CreateEvent from '../CreateEvent/CreateEvent';
-import EditEvent from '../EditEvent/EditEvent';
+import Break from './Break';
 
 const TourPackages = () => {
 	const { user } = useAuth();
@@ -48,61 +48,23 @@ const TourPackages = () => {
 			</p>
 			<Switch>
 				<Route exact path={path}>
+					<Break text='My Packages' />
 					<Table packages={myPackages} />
 				</Route>
 				<Route exact path={`${path}/my-packages`}>
+					<Break text='My Packages' />
+
 					<Table packages={myPackages} />
 				</Route>
 				<Route exact path={`${path}/all-packages`}>
+					<Break text='All Packages' />
+
 					<Table packages={packages} />
 				</Route>
 				<Route exact path={`${path}/add-packages`}>
-					<div className='container py-5'>
-						<div className='row'>
-							<div className='col-4'>
-								<hr
-									style={{
-										height: '3px',
-									}}
-								/>
-							</div>
-							<div className='col-4 text-center'>
-								<h3 className='text-shadow'>Create a new Tour Package</h3>
-							</div>
-							<div className='col-4'>
-								<hr
-									style={{
-										height: '3px',
-									}}
-								/>
-							</div>
-						</div>
-					</div>
+					<Break text='Create a new Tour Package' />
+
 					<CreateEvent />
-				</Route>
-				<Route exact path={`${path}/edit-packages/:id`}>
-					<div className='container py-5'>
-						<div className='row'>
-							<div className='col-4'>
-								<hr
-									style={{
-										height: '3px',
-									}}
-								/>
-							</div>
-							<div className='col-4 text-center'>
-								<h3 className='text-shadow'>Update Package</h3>
-							</div>
-							<div className='col-4'>
-								<hr
-									style={{
-										height: '3px',
-									}}
-								/>
-							</div>
-						</div>
-					</div>
-					<EditEvent />
 				</Route>
 			</Switch>
 		</div>

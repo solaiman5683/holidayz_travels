@@ -11,6 +11,7 @@ import Blogs from './Components/Blogs/Blogs';
 import Events from './Components/Events/Events';
 import Dashboard from './Components/Dashboard/Dashboard';
 import EventDetails from './Components/EventDetails/EventDetails';
+import EditEvent from './Components/EditEvent/EditEvent';
 // import useFirebase from './hooks/useFirebase';
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
 						</PrivateRoute>
 						<PrivateRoute path='/tours/:id'>
 							<EventDetails />
+						</PrivateRoute>
+						<PrivateRoute path='/edit-packages/:id'>
+							<EditEvent />
 						</PrivateRoute>
 						<Route path='/registration'>
 							<RegistrationForm />

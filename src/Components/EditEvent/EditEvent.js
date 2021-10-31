@@ -4,6 +4,7 @@ import { Editor } from '@tinymce/tinymce-react';
 import axios from 'axios';
 import useAuth from '../../hooks/useAuth';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 function EditEvent() {
 	const { id } = useParams();
 	const { user } = useAuth();
@@ -49,6 +50,32 @@ function EditEvent() {
 	return (
 		<div className='d-flex justify-content-center pb-5'>
 			<div>
+				<h5 className='p-4 text-center'>
+					<Link className='text-dark pt-5' to='/'>
+						Go to Home Page
+					</Link>
+				</h5>
+				<div className='container py-5'>
+					<div className='row'>
+						<div className='col-4'>
+							<hr
+								style={{
+									height: '3px',
+								}}
+							/>
+						</div>
+						<div className='col-4 text-center'>
+							<h3 className='text-shadow'>Update Package</h3>
+						</div>
+						<div className='col-4'>
+							<hr
+								style={{
+									height: '3px',
+								}}
+							/>
+						</div>
+					</div>
+				</div>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<input
 						className='form-control mb-3 p-3 fs-5'
