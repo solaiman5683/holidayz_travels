@@ -17,7 +17,7 @@ const Quotes = () => {
 					background:
 						'rgba(0, 0, 0, 0) linear-gradient(to top, rgba(0, 64, 126, 0.61) 0%, rgb(248, 249, 250) 100%)',
 				}}
-				className='d-flex justify-content-center align-items-center'>
+				className='d-flex justify-content-center align-items-center p-3'>
 				<figure>
 					<blockquote className='blockquote'>
 						<h1 className='text-uppercase fw-bold text-shadow mt-5'>

@@ -42,84 +42,98 @@ const LoginForm = () => {
 	return (
 		<div
 			style={{
-				height: '100vh',
+				minHeight: '100vh',
 				display: 'flex',
 				justifyContent: 'center',
 				alignItems: 'center',
 			}}>
 			<div
+				className='row m-5 rounded shadow'
 				style={{
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'space-evenly',
-					boxShadow: '0 0 5px #d2d0d0',
 					padding: '80px 0',
-					borderRadius: '10px',
-					boxSizing: 'border-box',
 					color: '#6C63FF !important',
 				}}>
-				<Box
-					component='form'
-					sx={{
-						'& .MuiTextField-root': { mb: 2 },
-					}}
-					onSubmit={handleLoginFunc}
-					autoComplete='off'>
-					<Typography
-						color='primary'
-						variant='h4'
-						sx={{ marginBottom: '30px', color: '#3f3d56' }}>
-						Login Your Account
-					</Typography>
-					<div>
-						<TextField
-							required
-							fullWidth
-							id='outlined-required'
-							label='Email'
-							onBlur={e => setEmail(e.target.value)}
-						/>
-						<TextField
-							required
-							fullWidth
-							id='outlined-password-input'
-							label='Password'
-							type='password'
-							autoComplete='current-password'
-							onBlur={e => setPassword(e.target.value)}
-						/>
-					</div>
-					<Button
-						type='submit'
-						variant='contained'
-						sx={{ padding: '10px', fontSize: '1.2em' }}
-						fullWidth>
-						Login
-					</Button>
-					<Link
-						to='/registration'
-						style={{
-							display: 'block',
-							textDecoration: 'none',
-							margin: '20px',
-							color: '#1565c0',
-							textAlign: 'center',
-						}}>
-						<i className='fad fa-sign-in-alt' style={{ padding: '5px' }}></i>
-						Create New Account
-					</Link>
-					<Typography color='red' sx={{ textAlign: 'center' }}>
-						{error === 'login' &&
-							'Sorry, something went wrong. Please try again !'}
-					</Typography>
-					<div>
-						<Button variant='text' onClick={handleGoogleLogin}>
-							<i className='fab fa-google' style={{ padding: '5px' }}></i> Login
-							with Google
+				<div className='col-md-6 p-5'>
+					<Box
+						component='form'
+						sx={{
+							'& .MuiTextField-root': { mb: 2 },
+						}}
+						onSubmit={handleLoginFunc}
+						autoComplete='off'>
+						<Typography
+							color='primary'
+							variant='h4'
+							sx={{ marginBottom: '30px', color: '#3f3d56' }}>
+							Login Your Account
+						</Typography>
+						<div>
+							<TextField
+								required
+								fullWidth
+								id='outlined-required'
+								label='Email'
+								onBlur={e => setEmail(e.target.value)}
+							/>
+							<TextField
+								required
+								fullWidth
+								id='outlined-password-input'
+								label='Password'
+								type='password'
+								autoComplete='current-password'
+								onBlur={e => setPassword(e.target.value)}
+							/>
+						</div>
+						<Button
+							type='submit'
+							variant='contained'
+							sx={{ padding: '10px', fontSize: '1.2em' }}
+							fullWidth>
+							Login
 						</Button>
-					</div>
-				</Box>
-				<div style={{ width: '40%', padding: '20px' }}>
+
+						<Typography color='red' sx={{ textAlign: 'center' }}>
+							{error === 'login' &&
+								'Sorry, something went wrong. Please try again !'}
+						</Typography>
+						<div className='row'>
+							<div className='col-lg-6'>
+								<Link
+									to='/registration'
+									style={{
+										display: 'block',
+										textDecoration: 'none',
+										margin: '20px',
+										color: '#1565c0',
+										textAlign: 'center',
+									}}>
+									<i
+										className='fad fa-sign-in-alt'
+										style={{ padding: '5px' }}></i>
+									Create New Account
+								</Link>
+							</div>
+							<div className='col-lg-6 text-center'>
+								<p
+									variant='text'
+									onClick={handleGoogleLogin}
+									style={{
+										display: 'block',
+										textDecoration: 'none',
+										margin: '20px',
+										color: '#1565c0',
+										textAlign: 'center',
+										padding: '0',
+										cursor: 'pointer',
+									}}>
+									<i className='fab fa-google'></i> Login with Google
+								</p>
+							</div>
+						</div>
+					</Box>
+				</div>
+				<div className='col-md-6 p-4'>
 					<img
 						src={error === 'login' ? errorImage : loginImage}
 						alt='Registration'

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import LoadEvents from '../LoadEvents/LoadEvents';
+import Navigation from '../Navigation/Navigation';
 
 const Events = () => {
 	const [events, setEvents] = useState();
@@ -13,10 +13,8 @@ const Events = () => {
 	}, []);
 	return (
 		<div>
-			<div className='container py-5'>
-				<NavLink className='nav-link py-4 fs-5' to='/'>
-					<i class='fad fa-home-lg'></i> Go to Home
-				</NavLink>
+			<Navigation />
+			<div className='container py-5 mt-5'>
 				<div className='row'>
 					<div className='col-5'>
 						<hr

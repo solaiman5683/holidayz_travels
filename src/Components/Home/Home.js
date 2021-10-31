@@ -48,13 +48,13 @@ const Home = () => {
 						<Article key={blog._id} blog={blog} />
 					))}
 				</div>
-				<p className='text-center py-5'>
+				<div className='text-center py-5'>
 					<Link
 						to='/blogs'
-						className='rounded booking-btn w-25 text-light text-decoration-none'>
+						className='rounded-pill booking-btn px-5 text-light text-decoration-none'>
 						Read More Articles {' >>'}
 					</Link>
-				</p>
+				</div>
 			</div>
 
 			<Quotes />

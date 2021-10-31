@@ -8,7 +8,7 @@ const Article = ({ blog }) => {
 			<div className='card border-0 rounded overflow-hidden shadow'>
 				<div className='row'>
 					<div
-						className='col-md-5'
+						className='col-lg-5'
 						style={{
 							minHeight: '300px',
 							background: `url("${image}")`,

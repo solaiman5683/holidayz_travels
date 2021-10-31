@@ -9,7 +9,7 @@ const Header = () => {
 			}}>
 			<div>
 				<img
-					src='https://monnampo.sirv.com/Images/Assignment11/landscape.svg'
+					src='https://monnampo.sirv.com/Images/Assignment11/landscape3.svg'
 					alt=''
 					width='100%'
 				/>
@@ -22,13 +22,6 @@ const Header = () => {
 				<h1 className='mb-5 text-uppercase text-center fw-bolder text-shadow'>
 					Get ready for real time adventure
 				</h1>
-				<p className='text-center'>
-					<img
-						src='https://monnampo.sirv.com/Images/Assignment11/car.svg'
-						alt=''
-						width='30%'
-					/>
-				</p>
 			</div>
 		</div>
 	);

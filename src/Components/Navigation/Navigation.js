@@ -10,6 +10,7 @@ const Navigation = () => {
 			<Navbar bg='light' expand='lg' className='pt-4 sticky-top'>
 				<Container>
 					<NavLink
+						exact
 						className='nav-link active position-relative'
 						style={{ width: '200px' }}
 						aria-current='page'
@@ -18,17 +19,14 @@ const Navigation = () => {
 							src='https://monnampo.sirv.com/Images/Assignment11/holidays-logo.svg'
 							alt=''
 							width='100px'
-							style={{
-								transform: 'scale(1.5)',
-								position: 'absolute',
-								top: '15%',
-							}}
+							className='logo'
 						/>
 					</NavLink>
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
 						<Nav className='me-auto'>
 							<NavLink
+								exact
 								className='nav-link'
 								activeClassName=' active'
 								aria-current='page'
