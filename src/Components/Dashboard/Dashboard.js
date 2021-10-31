@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router';
 import useAuth from '../../hooks/useAuth';
+import ManageOrders from './ManageOrders';
 import Sidebar from './Sidebar';
 import TourPackages from './Tour-Packages';
 
@@ -42,8 +43,11 @@ const Dashboard = () => {
 							<Route exact path={path}>
 								<h2>Welcome, {user.displayName}</h2>
 							</Route>
-							<Route path={path / 'tour-packages'}>
+							<Route path={path + '/tour-packages'}>
 								<TourPackages />
+							</Route>
+							<Route path={path + '/manage-orders'}>
+								<ManageOrders />
 							</Route>
 						</Switch>
 					</main>

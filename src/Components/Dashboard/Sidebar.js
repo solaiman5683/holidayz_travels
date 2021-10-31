@@ -21,6 +21,13 @@ const Sidebar = ({ path }) => {
 									Dashboard
 								</NavLink>
 								<NavLink
+									to={`${path}/manage-orders`}
+									activeClassName='active'
+									className='nav-link'
+									aria-current='page'>
+									Manage Orders
+								</NavLink>
+								<NavLink
 									to={`${path}/tour-packages`}
 									activeClassName='active'
 									className='nav-link'

@@ -26,7 +26,7 @@ const TourPackages = () => {
 		<div>
 			<p className='text-center mb-5'>
 				<NavLink
-					to={`${path}/tour-packages`}
+					to={`${path}/my-packages`}
 					activeClassName='text-primary'
 					className='btn shadow-none'>
 					My Packages
@@ -45,16 +45,16 @@ const TourPackages = () => {
 				</NavLink>
 			</p>
 			<Switch>
-				<Route exact path={`${path}/tour-packages`}>
+				<Route exact path={path}>
 					<Table packages={myPackages} />
 				</Route>
-				<Route path={`${path}/my-packages`}>
-					<table packages={myPackages} />
+				<Route exact path={`${path}/my-packages`}>
+					<Table packages={myPackages} />
 				</Route>
-				<Route path={`${path}/all-packages`}>
+				<Route exact path={`${path}/all-packages`}>
 					<Table packages={packages} />
 				</Route>
-				<Route path={`${path}/add-packages`}>
+				<Route exact path={`${path}/add-packages`}>
 					<div className='container py-5'>
 						<div className='row'>
 							<div className='col-4'>
@@ -78,7 +78,7 @@ const TourPackages = () => {
 					</div>
 					<CreateEvent />
 				</Route>
-				<Route path={`${path}/edit-packages/:id`}>
+				<Route exact path={`${path}/edit-packages/:id`}>
 					<div className='container py-5'>
 						<div className='row'>
 							<div className='col-4'>
