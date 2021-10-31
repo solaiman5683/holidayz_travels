@@ -14,6 +14,7 @@ import EditEvent from './Components/EditEvent/EditEvent';
 import CreateBlogs from './Components/CreateBlogs/CreateBlogs';
 import Articles from './Components/Articles/Articles';
 import BlogDetails from './Components/BlogDetails/BlogDetails';
+import About from './Components/About/About';
 
 function App() {
 	return (
@@ -48,6 +49,9 @@ function App() {
 						<PrivateRoute path='/edit-packages/:id'>
 							<EditEvent />
 						</PrivateRoute>
+						<Route path='/about'>
+							<About />
+						</Route>
 						<Route path='/registration'>
 							<RegistrationForm />
 						</Route>

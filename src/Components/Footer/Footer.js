@@ -18,11 +18,6 @@ const Footer = () => {
 							</Link>
 						</li>
 						<li className='nav-item'>
-							<Link to='/contact' className='nav-link px-2 text-muted'>
-								Contact us
-							</Link>
-						</li>
-						<li className='nav-item'>
 							<Link to='/terms' className='nav-link px-2 text-muted'>
 								Terms and conditions
 							</Link>

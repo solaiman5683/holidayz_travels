@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import LoadEvents from '../LoadEvents/LoadEvents';
 import Navigation from '../Navigation/Navigation';
+import Footer from '../Footer/Footer';
+import Break from '../Dashboard/Break';
 
 const Events = () => {
 	const [events, setEvents] = useState();
@@ -15,29 +17,12 @@ const Events = () => {
 		<div>
 			<Navigation />
 			<div className='container py-5 mt-5'>
-				<div className='row'>
-					<div className='col-5'>
-						<hr
-							style={{
-								height: '3px',
-							}}
-						/>
-					</div>
-					<div className='col-2 text-center'>
-						<h3 className='text-shadow'>All Packages</h3>
-					</div>
-					<div className='col-5'>
-						<hr
-							style={{
-								height: '3px',
-							}}
-						/>
-					</div>
-				</div>
+				<Break text='All Packages' />
 			</div>
 			<div className='container'>
 				<LoadEvents events={events} />
 			</div>
+			<Footer />
 		</div>
 	);
 };

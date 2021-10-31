@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Article from '../Article/Article';
 import Break from '../Dashboard/Break';
+import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
 
 const Articles = () => {
@@ -26,6 +27,7 @@ const Articles = () => {
 					))}
 				</div>
 			</div>
+			<Footer />
 		</>
 	);
 };

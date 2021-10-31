@@ -5,7 +5,7 @@ const Article = ({ blog }) => {
 	const { _id, title, image, shortDes, time } = blog;
 	return (
 		<div className='col '>
-			<div className='card border-0 rounded overflow-hidden shadow'>
+			<div className='card border-0 rounded overflow-hidden h-100 shadow'>
 				<div className='row'>
 					<div
 						className='col-lg-5'
@@ -18,8 +18,10 @@ const Article = ({ blog }) => {
 					<div className='col-md-7 py-3 px-2'>
 						<div className='card-body'>
 							<small className='text-muted'>{time}</small>
-							<h3 className='card-title'>{title}</h3>
-							<p className='card-text'>{shortDes.slice(0, 200)}...</p>
+							<h3 className='card-title'>
+								{title.slice(0, title.indexOf('-'))}
+							</h3>
+							<p className='card-text'>{shortDes.slice(0, 150)}</p>
 							<Link to={`/blogs/${_id}`} className='text-decoration-none'>
 								Read more
 							</Link>

@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import Footer from '../Footer/Footer';
+import Navigation from '../Navigation/Navigation';
 
 const EventDetails = () => {
 	const { id } = useParams();
@@ -21,63 +23,51 @@ const EventDetails = () => {
 	}
 
 	return (
-		<div className='container p-5'>
-			<div className='my-5'>
-				<div
-					className='blog-bg'
-					style={{
-						height: '500px',
-						background: `url('${events?.image}') no-repeat`,
-					}}></div>
-				<p className='py-3'>
-					<Link to='/' className=' px-2 text-decoration-none text-dark'>
-						<i className='fad fa-home'></i> Go to Home Page
-					</Link>
-					<Link to='/tours' className='px-2 text-decoration-none text-dark'>
-						<i className='fad fa-file-alt'></i> Back to Tour Page
-					</Link>
-					<Link
-						to='/dashboard/tour-packages/all-packages'
-						className='px-2 text-decoration-none text-dark'>
-						<i className='fad fa-file-alt'></i> Go to Dashboard
-					</Link>
-					<Link
-						to='/dashboard/my-orders'
-						className='px-2 text-decoration-none text-dark'>
-						<i className='fad fa-file-alt'></i> Your Booking
-					</Link>
-				</p>
-				<div className='row py-4'>
-					<div className='col-md-6'>
-						<h1 className='text-capitalize'>
-							{events?.name} <small className='fs-5'>-{events?.country}</small>
-						</h1>
-					</div>
+		<>
+			<Navigation />
+			<div className='container p-5'>
+				<div className='my-5'>
 					<div
-						className='col-md-6 justify-content-end'
-						style={{ textAlign: 'right' }}>
-						<button className='btn pe-3 fs-4'>
-							Price Per Person : ${events?.price}
-						</button>
-						<button
-							className='btn booking-btn text-light'
-							onClick={() => setModalShow(true)}>
-							<i className='fad fa-hand-point-right fs-5'></i> Book Now
-						</button>
+						className='blog-bg'
+						style={{
+							height: '500px',
+							background: `url('${events?.image}') no-repeat`,
+						}}></div>
 
-						{events?._id && (
-							<MyVerticallyCenteredModal
-								show={modalShow}
-								onHide={() => setModalShow(false)}
-								packages={events._id}
-							/>
-						)}
+					<div className='row py-5'>
+						<div className='col-md-6'>
+							<h1 className='text-capitalize'>
+								{events?.name}{' '}
+								<small className='fs-5'>-{events?.country}</small>
+							</h1>
+						</div>
+						<div
+							className='col-md-6 justify-content-end'
+							style={{ textAlign: 'right' }}>
+							<button className='btn pe-3 fs-4'>
+								Price Per Person : ${events?.price}
+							</button>
+							<button
+								className='btn booking-btn text-light'
+								onClick={() => setModalShow(true)}>
+								<i className='fad fa-hand-point-right fs-5'></i> Book Now
+							</button>
+
+							{events?._id && (
+								<MyVerticallyCenteredModal
+									show={modalShow}
+									onHide={() => setModalShow(false)}
+									packages={events._id}
+								/>
+							)}
+						</div>
 					</div>
+					<hr />
+					<div className='p-4' dangerouslySetInnerHTML={createMarkup()} />
 				</div>
-				<hr />
-				<div className='p-4' dangerouslySetInnerHTML={createMarkup()} />
 			</div>
-		</div>
+			<Footer />
+		</>
 	);
 };
 
