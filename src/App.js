@@ -10,6 +10,7 @@ import NotFound from './Components/NotFound/NotFound';
 import Blogs from './Components/Blogs/Blogs';
 import Events from './Components/Events/Events';
 import Dashboard from './Components/Dashboard/Dashboard';
+import EventDetails from './Components/EventDetails/EventDetails';
 // import useFirebase from './hooks/useFirebase';
 
 function App() {
@@ -28,14 +29,14 @@ function App() {
 						<PrivateRoute path='/blogs'>
 							<Blogs />
 						</PrivateRoute>
-						<PrivateRoute path='/tours'>
+						<PrivateRoute exact path='/tours'>
 							<Events />
 						</PrivateRoute>
 						<PrivateRoute path='/dashboard'>
 							<Dashboard />
 						</PrivateRoute>
-						<PrivateRoute path='/dashboard'>
-							<Dashboard />
+						<PrivateRoute path='/tours/:id'>
+							<EventDetails />
 						</PrivateRoute>
 						<Route path='/registration'>
 							<RegistrationForm />

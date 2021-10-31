@@ -5,22 +5,23 @@ import { NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Table from './Table';
 import CreateEvent from '../CreateEvent/CreateEvent';
+import EditEvent from '../EditEvent/EditEvent';
 
 const TourPackages = () => {
 	const { user } = useAuth();
 	const { path } = useRouteMatch();
 	const [packages, setPackages] = useState();
 	const [myPackages, setMyPackages] = useState();
+
 	useEffect(() => {
 		axios('http://localhost:5000/events').then(res => setPackages(res.data));
-		console.log('Hello');
 	}, []);
 	useEffect(() => {
 		axios(`http://localhost:5000/my-events?user=${user.uid}`).then(res =>
 			setMyPackages(res.data)
 		);
-		console.log('Hello');
 	}, [user]);
+
 	return (
 		<div>
 			<p className='text-center mb-5'>
@@ -48,7 +49,7 @@ const TourPackages = () => {
 					<Table packages={myPackages} />
 				</Route>
 				<Route path={`${path}/my-packages`}>
-					<Table packages={myPackages} />
+					<table packages={myPackages} />
 				</Route>
 				<Route path={`${path}/all-packages`}>
 					<Table packages={packages} />
@@ -76,6 +77,30 @@ const TourPackages = () => {
 						</div>
 					</div>
 					<CreateEvent />
+				</Route>
+				<Route path={`${path}/edit-packages/:id`}>
+					<div className='container py-5'>
+						<div className='row'>
+							<div className='col-4'>
+								<hr
+									style={{
+										height: '3px',
+									}}
+								/>
+							</div>
+							<div className='col-4 text-center'>
+								<h3 className='text-shadow'>Update Package</h3>
+							</div>
+							<div className='col-4'>
+								<hr
+									style={{
+										height: '3px',
+									}}
+								/>
+							</div>
+						</div>
+					</div>
+					<EditEvent />
 				</Route>
 			</Switch>
 		</div>

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Editor } from '@tinymce/tinymce-react';
 import axios from 'axios';
 import useAuth from '../../hooks/useAuth';
-function CreateEvent() {
+import { useParams } from 'react-router';
+function EditEvent() {
+	const { id } = useParams();
 	const { user } = useAuth();
 	const {
 		register,
@@ -20,11 +22,17 @@ function CreateEvent() {
 		description: '',
 		user: user.uid,
 	});
-
+	const [loadData, setLoadData] = useState();
+	console.log(events);
+	useEffect(() => {
+		axios
+			.get(`http://localhost:5000/events/${id}`)
+			.then(res => setLoadData({ ...res.data }));
+	}, [id]);
 	const onSubmit = data => {
 		axios
-			.post('http://localhost:5000/events', events)
-			.then(response => response.data && alert('Events Added Successfully'))
+			.put(`http://localhost:5000/events/${id}`, events)
+			.then(response => response.data && alert('Events Updated Successfully'))
 			.catch(error => alert(error.message));
 		reset();
 	};
@@ -45,6 +53,7 @@ function CreateEvent() {
 					<input
 						className='form-control mb-3 p-3 fs-5'
 						placeholder='Enter Place Name'
+						defaultValue={loadData?.name}
 						{...register('name', { required: true })}
 						onBlur={e => {
 							setEvents(prev => {
@@ -59,6 +68,7 @@ function CreateEvent() {
 					<input
 						className='form-control mb-3 p-3 fs-5'
 						placeholder='Enter Image Url'
+						defaultValue={loadData?.image}
 						{...register('image', { required: true })}
 						onBlur={e => {
 							setEvents(prev => {
@@ -73,6 +83,7 @@ function CreateEvent() {
 					<input
 						className='form-control mb-3 p-3 fs-5'
 						placeholder='Enter Country Name'
+						defaultValue={loadData?.country}
 						{...register('country', { required: true })}
 						onBlur={e => {
 							setEvents(prev => {
@@ -87,6 +98,7 @@ function CreateEvent() {
 					<input
 						className='form-control mb-3 p-3 fs-5'
 						placeholder='Enter Price'
+						defaultValue={loadData?.price}
 						{...register('charge', { required: true })}
 						type='number'
 						onBlur={e => {
@@ -103,7 +115,7 @@ function CreateEvent() {
 					<input
 						className='form-control mb-3 p-3 fs-5'
 						type='date'
-						{...register('price')}
+						{...register('date')}
 						onBlur={e => {
 							setEvents(prev => {
 								return {
@@ -115,7 +127,7 @@ function CreateEvent() {
 					/>
 					<Editor
 						apiKey='qvctqtfhdqwqkjf8r0rd2dbjuk44fzk70v0sosx67u0z5msk'
-						initialValue='<p>Write Your Description Here...</p>'
+						initialValue={loadData?.description}
 						init={{
 							height: 500,
 							menubar: false,
@@ -141,4 +153,4 @@ function CreateEvent() {
 	);
 }
 
-export default CreateEvent;
+export default EditEvent;

@@ -61,3 +61,9 @@
 	border-radius: 30px !important;
 	overflow: hidden;
 }
+
+.blog-bg {
+	background-size: cover !important;
+	background-position: center !important;
+	border-radius: 10px;
+}
