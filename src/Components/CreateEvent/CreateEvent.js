@@ -23,7 +23,7 @@ function CreateEvent() {
 
 	const onSubmit = data => {
 		axios
-			.post('http://localhost:5000/events', events)
+			.post('https://holidayz-travel.herokuapp.com/events', events)
 			.then(response => response.data && alert('Events Added Successfully'))
 			.catch(error => alert(error.message));
 		reset();

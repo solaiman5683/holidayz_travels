@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const OrdersTable = ({ orders }) => {
 	const [packages, setPackages] = useState();
@@ -27,7 +28,11 @@ const OrdersTable = ({ orders }) => {
 						<tr key={pg._id}>
 							<td className='py-3'>{'1,00' + (i + 1)}</td>
 							<td className='py-3'>
-								{packages?.map(p => p._id === pg.packages && p.name)}
+								<Link
+									className='text-dark text-decoration-none'
+									to={`/tours/${pg._id}`}>
+									{packages?.map(p => p._id === pg.packages && p.name)}
+								</Link>
 							</td>
 							<td className='py-3'>{pg.name}</td>
 							<td className='py-3'>{pg.address}</td>

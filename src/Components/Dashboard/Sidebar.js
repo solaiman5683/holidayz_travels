@@ -13,9 +13,10 @@ const Sidebar = ({ path }) => {
 						<ul className='nav flex-column'>
 							<li className='nav-item'>
 								<NavLink
+									exact
 									to='/dashboard'
 									activeClassName='active'
-									className='nav-link'
+									className='nav-link text-dark'
 									aria-current='page'
 									href='#'>
 									Dashboard
@@ -23,14 +24,14 @@ const Sidebar = ({ path }) => {
 								<NavLink
 									to={`${path}/my-orders`}
 									activeClassName='active'
-									className='nav-link'
+									className='nav-link text-dark'
 									aria-current='page'>
 									My Bookings
 								</NavLink>
 								<NavLink
 									to={`${path}/manage-orders`}
 									activeClassName='active'
-									className='nav-link'
+									className='nav-link text-dark'
 									aria-current='page'>
 									Manage Bookings
 								</NavLink>
@@ -38,7 +39,7 @@ const Sidebar = ({ path }) => {
 								<NavLink
 									to={`${path}/tour-packages`}
 									activeClassName='active'
-									className='nav-link'
+									className='nav-link text-dark'
 									aria-current='page'>
 									Tour Packages
 								</NavLink>

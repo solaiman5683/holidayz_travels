@@ -37,7 +37,13 @@ const Table = ({ packages, editId }) => {
 					{data?.map((pg, i) => (
 						<tr key={pg._id}>
 							<td className='py-3'>{'1,00' + (i + 1)}</td>
-							<td className='py-3'>{pg.name}</td>
+							<td className='py-3'>
+								<Link
+									className='text-dark text-decoration-none'
+									to={`/tours/${pg._id}`}>
+									{pg.name}
+								</Link>
+							</td>
 							<td className='py-3'>{pg.country}</td>
 							<td className='py-3'>{pg.time}</td>
 							<td className='py-3'>${pg.price}</td>

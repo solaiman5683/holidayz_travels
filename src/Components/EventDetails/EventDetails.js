@@ -36,6 +36,16 @@ const EventDetails = () => {
 					<Link to='/tours' className='px-2 text-decoration-none text-dark'>
 						<i className='fad fa-file-alt'></i> Back to Tour Page
 					</Link>
+					<Link
+						to='/dashboard/tour-packages/all-packages'
+						className='px-2 text-decoration-none text-dark'>
+						<i className='fad fa-file-alt'></i> Go to Dashboard
+					</Link>
+					<Link
+						to='/dashboard/my-orders'
+						className='px-2 text-decoration-none text-dark'>
+						<i className='fad fa-file-alt'></i> Your Booking
+					</Link>
 				</p>
 				<div className='row py-4'>
 					<div className='col-md-6'>
@@ -54,7 +64,6 @@ const EventDetails = () => {
 							onClick={() => setModalShow(true)}>
 							<i className='fad fa-hand-point-right fs-5'></i> Book Now
 						</button>
-						{/* <Button variant='primary'>Launch vertically centered modal</Button> */}
 
 						{events?._id && (
 							<MyVerticallyCenteredModal

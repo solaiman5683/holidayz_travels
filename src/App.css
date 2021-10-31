@@ -67,3 +67,7 @@
 	background-position: center !important;
 	border-radius: 10px;
 }
+
+.active {
+	color: #2758fa !important;
+}
