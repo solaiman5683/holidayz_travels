@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import ManageOrders from './ManageOrders';
+import MyOrders from './MyOrders';
 import Sidebar from './Sidebar';
 import TourPackages from './Tour-Packages';
 
@@ -48,6 +49,9 @@ const Dashboard = () => {
 							</Route>
 							<Route path={path + '/manage-orders'}>
 								<ManageOrders />
+							</Route>
+							<Route path={path + '/my-orders'}>
+								<MyOrders />
 							</Route>
 						</Switch>
 					</main>

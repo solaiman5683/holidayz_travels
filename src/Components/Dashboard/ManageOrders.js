@@ -6,9 +6,10 @@ const ManageOrders = () => {
 	const [orders, setOrders] = useState();
 
 	useEffect(() => {
-		axios
+		const unsubscribe = axios
 			.get('http://localhost:5000/bookings')
 			.then(res => setOrders(res.data));
+		return unsubscribe;
 	}, []);
 	return <OrdersTable orders={orders} />;
 };

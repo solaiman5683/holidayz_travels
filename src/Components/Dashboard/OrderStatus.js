@@ -8,7 +8,7 @@ const OrdersTable = ({ orders }) => {
 	}, []);
 	return (
 		<div className='table-responsive'>
-			<h1 className='text-center pb-5'>All Bookings</h1>
+			<h1 className='text-center pb-5'>My Bookings</h1>
 			<table className='table table-striped table-sm'>
 				<thead>
 					<tr>
@@ -17,7 +17,9 @@ const OrdersTable = ({ orders }) => {
 						<th scope='col'>Customer Name</th>
 						<th scope='col'>Address</th>
 						<th scope='col'>Person</th>
-						<th scope='col'>Action</th>
+						<th scope='col' className='text-center'>
+							Action
+						</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -34,9 +36,9 @@ const OrdersTable = ({ orders }) => {
 							<td className='py-3'>
 								<span
 									className={`btn ${
-										pg.status === 'pending' ? 'btn-danger' : 'btn-primary'
+										pg.status === 'pending' ? 'btn-danger' : 'btn-success'
 									}`}>
-									{pg.status === 'pending' ? 'Approve' : 'Approved'}
+									{pg.status === 'pending' ? 'Pending' : 'Approved'}
 								</span>
 							</td>
 						</tr>
