@@ -1,33 +1,40 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Nav, Navbar } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import Article from '../Article/Article';
+import Break from '../Dashboard/Break';
 
 const Articles = () => {
+	const [blogs, setBlogs] = useState();
+
+	useEffect(() => {
+		axios
+			.get('https://holidayz-travel.herokuapp.com/blogs')
+			.then(response => setBlogs(response.data));
+	}, []);
+
+	console.log(blogs);
+
 	return (
 		<div className='container py-5'>
-			<div className='row'>
-				<div className='col-5'>
-					<hr
-						style={{
-							height: '3px',
-						}}
-					/>
-				</div>
-				<div className='col-2 text-center'>
-					<h3 className='text-shadow'>Our Articles</h3>
-				</div>
-				<div className='col-5'>
-					<hr
-						style={{
-							height: '3px',
-						}}
-					/>
-				</div>
-			</div>
+			<Navbar bg='light' expand='lg' className='py-5 fs-4'>
+				<Nav className='mx-auto'>
+					<NavLink
+						className='nav-link'
+						activeClassName=' active shadow rounded-pill px-4'
+						aria-current='page'
+						exact
+						to='/'>
+						Back to Home Page
+					</NavLink>
+				</Nav>
+			</Navbar>
+			<Break text='Our Articles' />
 			<div className='row row-cols-1 row-cols-md-2 g-4 my-3'>
-				<Article />
-				<Article />
-				<Article />
-				<Article />
+				{blogs?.map(blog => (
+					<Article key={blog._id} blog={blog} />
+				))}
 			</div>
 		</div>
 	);

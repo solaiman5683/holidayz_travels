@@ -10,7 +10,7 @@ const Events = () => {
 		axios
 			.get('https://holidayz-travel.herokuapp.com/events')
 			.then(response => setEvents(response.data));
-	});
+	}, []);
 	return (
 		<div>
 			<div className='container py-5'>

@@ -7,15 +7,15 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import NotFound from './Components/NotFound/NotFound';
-import Blogs from './Components/Blogs/Blogs';
 import Events from './Components/Events/Events';
 import Dashboard from './Components/Dashboard/Dashboard';
 import EventDetails from './Components/EventDetails/EventDetails';
 import EditEvent from './Components/EditEvent/EditEvent';
-// import useFirebase from './hooks/useFirebase';
+import CreateBlogs from './Components/CreateBlogs/CreateBlogs';
+import Articles from './Components/Articles/Articles';
+import BlogDetails from './Components/BlogDetails/BlogDetails';
 
 function App() {
-	// const { user } = useFirebase();
 	return (
 		<div className='App'>
 			<AuthProvider>
@@ -27,8 +27,14 @@ function App() {
 						<Route path='/home'>
 							<Home />
 						</Route>
-						<PrivateRoute path='/blogs'>
-							<Blogs />
+						<PrivateRoute exact path='/blogs'>
+							<Articles />
+						</PrivateRoute>
+						<PrivateRoute path='/blogs/:id'>
+							<BlogDetails />
+						</PrivateRoute>
+						<PrivateRoute path='/create-blogs'>
+							<CreateBlogs />
 						</PrivateRoute>
 						<PrivateRoute exact path='/tours'>
 							<Events />
