@@ -4,8 +4,18 @@ import React, { useEffect, useState } from 'react';
 const OrdersTable = ({ orders }) => {
 	const [packages, setPackages] = useState();
 	useEffect(() => {
-		axios('http://localhost:5000/events').then(res => setPackages(res.data));
+		const unsubscribe = axios('http://localhost:5000/events').then(res =>
+			setPackages(res.data)
+		);
+		return unsubscribe;
 	}, []);
+	const handleApprove = product => {
+		const updated = { status: 'approved' };
+		console.log(updated);
+		axios
+			.put(`http://localhost:5000/bookings/${product._id}`, updated)
+			.then(res => console.log(res.data));
+	};
 	return (
 		<div className='table-responsive'>
 			<h1 className='text-center pb-5'>All Bookings</h1>
@@ -35,7 +45,8 @@ const OrdersTable = ({ orders }) => {
 								<span
 									className={`btn ${
 										pg.status === 'pending' ? 'btn-danger' : 'btn-primary'
-									}`}>
+									}`}
+									onClick={() => handleApprove(pg)}>
 									{pg.status === 'pending' ? 'Approve' : 'Approved'}
 								</span>
 							</td>
