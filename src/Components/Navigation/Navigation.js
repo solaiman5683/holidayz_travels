@@ -81,6 +81,16 @@ const Navigation = () => {
 										className='dropdown-item text-center mb-3 rounded-pill btn-pointer'>
 										Dashboard
 									</Link>
+									<Link
+										to='/dashboard/my-orders'
+										className='dropdown-item text-center mb-3 rounded-pill btn-pointer'>
+										My Bookings
+									</Link>
+									<Link
+										to='/dashboard/manage-orders'
+										className='dropdown-item text-center mb-3 rounded-pill btn-pointer'>
+										Manage All Bookings
+									</Link>
 									<p
 										className='dropdown-item text-center bg-danger text-light rounded-pill btn-pointer'
 										onClick={logout}>
