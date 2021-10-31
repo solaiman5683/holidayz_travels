@@ -1,5 +1,4 @@
 import {
-	FacebookAuthProvider,
 	getAuth,
 	GoogleAuthProvider,
 	signInWithPopup,
@@ -22,10 +21,8 @@ const useFirebase = () => {
 
 	// External Login Provider.
 	const googleProvider = new GoogleAuthProvider();
-	const facebookProvider = new FacebookAuthProvider();
 
 	const handleGoogleSignIn = () => signInWithPopup(auth, googleProvider);
-	const handleFacebookSignIn = () => signInWithPopup(auth, facebookProvider);
 
 	const handleCreateUser = (name, email, password, history) => {
 		createUserWithEmailAndPassword(auth, email, password)
@@ -94,7 +91,6 @@ const useFirebase = () => {
 		setUser,
 		setError,
 		handleGoogleSignIn,
-		handleFacebookSignIn,
 		handleCreateUser,
 		handleLogin,
 		logout,

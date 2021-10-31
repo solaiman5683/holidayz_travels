@@ -16,7 +16,6 @@ const RegistrationForm = () => {
 		user,
 		error,
 		handleGoogleSignIn,
-		handleFacebookSignIn,
 		handleCreateUser,
 		setUser,
 		setError,
@@ -31,18 +30,6 @@ const RegistrationForm = () => {
 		e.target.reset();
 	};
 
-	const handleFacebookLogin = () => {
-		handleFacebookSignIn()
-			.then(res => {
-				const user = res.user;
-				setError('');
-				setUser(user);
-				history.push(redirectURI);
-			})
-			.catch(err => {
-				setError('login');
-			});
-	};
 	const handleGoogleLogin = () => {
 		handleGoogleSignIn()
 			.then(res => {
@@ -163,10 +150,6 @@ const RegistrationForm = () => {
 						<Button variant='text' onClick={handleGoogleLogin}>
 							<i className='fab fa-google' style={{ padding: '5px' }}></i>{' '}
 							Signup with Google
-						</Button>
-						<Button variant='text' onClick={handleFacebookLogin}>
-							<i className='fab fa-facebook-f' style={{ padding: '5px' }}></i>{' '}
-							Signup with Facebook
 						</Button>
 					</div>
 				</Box>

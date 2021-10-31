@@ -11,17 +11,8 @@ const LoginForm = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
-	// const location = useLocation();
-
-	const {
-		user,
-		error,
-		handleGoogleSignIn,
-		handleFacebookSignIn,
-		handleLogin,
-		setError,
-		setUser,
-	} = useAuth();
+	const { user, error, handleGoogleSignIn, handleLogin, setError, setUser } =
+		useAuth();
 
 	const location = useLocation();
 	const history = useHistory();
@@ -33,18 +24,6 @@ const LoginForm = () => {
 		e.target.reset();
 	};
 
-	const handleFacebookLogin = () => {
-		handleFacebookSignIn()
-			.then(res => {
-				const user = res.user;
-				setError('');
-				setUser(user);
-				history.push(redirectURI);
-			})
-			.catch(err => {
-				setError('login');
-			});
-	};
 	const handleGoogleLogin = () => {
 		handleGoogleSignIn()
 			.then(res => {
@@ -137,10 +116,6 @@ const LoginForm = () => {
 						<Button variant='text' onClick={handleGoogleLogin}>
 							<i className='fab fa-google' style={{ padding: '5px' }}></i> Login
 							with Google
-						</Button>
-						<Button variant='text' onClick={handleFacebookLogin}>
-							<i className='fab fa-facebook-f' style={{ padding: '5px' }}></i>{' '}
-							Login with Facebook
 						</Button>
 					</div>
 				</Box>
